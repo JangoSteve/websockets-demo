@@ -1,0 +1,16 @@
+.client {
+  background: #ccc;
+  border: solid 1px #aaa;
+}
+.client.you {
+  background: #9d9;
+  border-color: #7b7;
+}
+.client-id {
+  display: block;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+}

@@ -33,6 +33,12 @@ connection.onmessage = function (e) {
 
 // Message functions
 
-msg.connected = function(data) {
-  console.log('connected!');
+msg.connection = function(data) {
+  var client = $('<li class="client"></li'),
+      ul = $('#connected-clients');
+
+  if (data.id === connection.id) {
+    client.addClass('you');
+  }
+  client.html('<span class="client-id">' + data.id + '</span>').appendTo(ul);
 };
