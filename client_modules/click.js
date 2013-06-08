@@ -1,5 +1,5 @@
 msg.click = function(data) {
-  alert('click from ' + data.sender + '!');
+  msg.log('click from ' + data.sender + '!');
 }
 
 $(document).delegate('*', 'click', function (e) {

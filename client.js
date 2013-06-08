@@ -1,6 +1,12 @@
 var connection = new WebSocket('ws://localhost:8080'),
     count,
-    msg = {};
+    msg = {
+      console: $('#event-console'),
+      log: function(message) {
+        var log = $('<div class="event-msg"></div>');
+        log.html(message).prependTo(msg.console);
+      }
+    };
 
 // When the connection is open, send some data to the server
 connection.onopen = function () {
