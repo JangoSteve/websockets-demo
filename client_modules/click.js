@@ -1,8 +1,10 @@
 msg.click = function(data) {
-  msg.log('click from ' + data.sender + '!');
+  msg.log('click received from ' + data.sender + '!');
 }
 
-$(document).delegate('*', 'click', function (e) {
-  var msg = JSON.stringify({type: 'click'});
-  connection.send(msg);
+$(document).delegate('.client[data-id]', 'click', function (e) {
+  var target = $(this).data('id'),
+      message = JSON.stringify({type: 'click', target: target});
+  connection.send(message);
+  msg.log('click sent to ' + target + '!');
 });

@@ -1,3 +1,7 @@
+#event-console {
+  height: 150px;
+  overflow: auto;
+}
 .client {
   background: #ccc;
   border: solid 1px #aaa;
