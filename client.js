@@ -23,7 +23,7 @@ connection.onmessage = function (e) {
     case 'connected':
       connection.id = response.id
       break;
-    case 'cloased':
+    case 'closed':
       count = response.clients;
       break;
     default:
