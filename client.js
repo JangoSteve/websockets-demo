@@ -35,7 +35,7 @@ connection.onmessage = function (e) {
     case 'error':
       break;
     default:
-      console.log('unknown type: ' + response.type);
+      //console.log('custom type: ' + response.type);
   }
   if (typeof(msg[response.type]) === 'function') {
     msg[response.type](response);
@@ -50,6 +50,10 @@ var updateCount = function(newCount) {
 // Message functions
 
 msg.connection = function(data) {
+  if (data.id > connection.id) {
+    msg.log('client ' + data.id + ' has joined');
+  }
+
   var client = $('<li class="client"></li>'),
       ul = $('#connected-clients');
 
@@ -59,6 +63,12 @@ msg.connection = function(data) {
   client.attr('data-id', data.id).html('<span class="client-id">' + data.id + '</span>').appendTo(ul);
 };
 
+msg.connected = function(data) {
+  msg.log('you are connected as client ' + data.id);
+};
+
 msg.closed = function(data) {
+  msg.log('client ' + data.id + ' has left the session');
+
   var client = $('.client[data-id=' + data.id + ']').remove();
 };
