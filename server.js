@@ -12,18 +12,29 @@ wss.on('connection', function(ws) {
     console.log('received: %s', message);
   });
 
+  ws.send(JSON.stringify({
+    type: 'connected',
+    id: ws.id
+  }));
+
   for (var id in connections) {
+
+    // Notify all clients of new connection
     connections[id].send(JSON.stringify({
       type: 'connection',
       id: ws.id,
       clients: Object.keys(connections).length
     }));
-  }
 
-  ws.send(JSON.stringify({
-    type: 'connected',
-    id: ws.id
-  }));
+    // Notify current client of all existing connections
+    if (id < ws.id) {
+      ws.send(JSON.stringify({
+        type: 'connection',
+        id: id,
+        clients: Object.keys(connections).length
+      }));
+    }
+  }
 
   ws.on('close', function() {
     console.log('deleting ' + ws.id);
