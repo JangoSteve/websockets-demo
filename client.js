@@ -5,6 +5,10 @@ var connection = new WebSocket('ws://localhost:8080'),
       log: function(message) {
         var log = $('<div class="event-msg"></div>');
         log.html(message).prependTo(msg.console);
+      },
+      installed_list: $('#installed-modules'),
+      install: function(name, url) {
+        msg.installed_list.append('<li><a href="' + url + '">' + name + '</a></li>');
       }
     };
 

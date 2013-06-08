@@ -1,3 +1,5 @@
+msg.install("connection.js", "#");
+
 msg.connection = function(data) {
   if (data.id > connection.id) {
     msg.log('Client ' + data.id + ' has joined.');

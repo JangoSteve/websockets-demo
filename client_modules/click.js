@@ -1,3 +1,5 @@
+msg.install("click.js", "#");
+
 msg.click = function(data) {
   msg.log('Click received from client ' + data.sender + '.');
 }

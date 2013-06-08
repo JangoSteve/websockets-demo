@@ -1,3 +1,5 @@
+msg.install("closed.js", "#");
+
 msg.closed = function(data) {
   msg.log('Client ' + data.id + ' has left the session.');
 

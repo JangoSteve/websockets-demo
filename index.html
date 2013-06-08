@@ -24,6 +24,12 @@
         <li class="divider"></li>
         <li class="name"><a><span id="client-count">0</span> clients connected</a></li>
         <li class="divider hide-for-small"></li>
+        <li class="has-dropdown">
+          <a href="#">Installed modules</a>
+          <ul id="installed-modules" class="dropdown">
+          </ul>
+        </li>
+        <li class="divider hide-for-small"></li>
       </ul>
       <ul class="right">
         <li class="divider"></li>
@@ -51,6 +57,7 @@
   </ul>
 
   <script src="./vendor/jquery.min.js"></script>
+  <script src="./vendor/custom.modernizr.js"></script>
   <script src="./vendor/foundation.min.js"></script>
   <script>
     $(document).foundation();
