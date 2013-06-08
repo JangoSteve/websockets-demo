@@ -22,29 +22,9 @@ connection.onerror = function (error) {
 connection.onmessage = function (e) {
   var response = JSON.parse(e.data);
   console.log('Server: ' + e.data);
-  switch (response.type) {
-    case 'connection':
-      updateCount(response.clients);
-      break;
-    case 'connected':
-      connection.id = response.id;
-      break;
-    case 'closed':
-      updateCount(response.clients);
-      break;
-    case 'error':
-      break;
-    default:
-      //console.log('custom type: ' + response.type);
-  }
   if (typeof(msg[response.type]) === 'function') {
     msg[response.type](response);
   }
-};
-
-var updateCount = function(newCount) {
-  count = newCount;
-  $('#client-count').html(count);
 };
 
 // Message functions
@@ -61,9 +41,12 @@ msg.connection = function(data) {
     client.addClass('you');
   }
   client.attr('data-id', data.id).html('<span class="client-id">' + data.id + '</span>').appendTo(ul);
+
+  $('#client-count').html(data.clients);
 };
 
 msg.connected = function(data) {
+  connection.id = data.id;
   msg.log('you are connected as client ' + data.id);
 };
 
@@ -71,4 +54,6 @@ msg.closed = function(data) {
   msg.log('client ' + data.id + ' has left the session');
 
   var client = $('.client[data-id=' + data.id + ']').remove();
+
+  $('#client-count').html(data.clients);
 };
