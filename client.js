@@ -26,6 +26,8 @@ connection.onmessage = function (e) {
     case 'closed':
       updateCount(response.clients);
       break;
+    case 'error':
+      break;
     default:
       console.log('unknown type: ' + response.type);
   }

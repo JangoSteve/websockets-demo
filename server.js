@@ -9,7 +9,17 @@ wss.on('connection', function(ws) {
   ws.id = i;
 
   ws.on('message', function(message) {
-    console.log('received: %s', message);
+    try {
+      var msg = JSON.parse(message);
+      msg.sender = ws.id;
+      sendToConnections(msg);
+    } catch (e) {
+      ws.send(JSON.stringify({
+        type: 'error',
+        error: e,
+        received: message
+      }));
+    }
   });
 
   ws.send(JSON.stringify({
@@ -49,8 +59,14 @@ wss.on('connection', function(ws) {
 });
 
 var sendToConnections = function(obj) {
-  msg = JSON.stringify(obj);
-  for (var id in connections) {
-    connections[id].send(msg);
+  var msg = JSON.stringify(obj);
+  if (obj.target) {
+    console.log('sending from ' + obj.sender + ' to ' + obj.target + ': ' + msg);
+    connections[obj.target].send(msg);
+  } else {
+    console.log('sending from ' + obj.sender + ' to everyone: ' + msg);
+    for (var id in connections) {
+      connections[id].send(msg);
+    }
   }
 };
