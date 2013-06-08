@@ -39,5 +39,13 @@ wss.on('connection', function(ws) {
   ws.on('close', function() {
     console.log('deleting ' + ws.id);
     delete connections[ws.id];
+
+    for (var id in connections) {
+      connections[id].send(JSON.stringify({
+        type: 'closed',
+        id: ws.id,
+        clients: Object.keys(connections).length
+      }));
+    }
   });
 });
