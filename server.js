@@ -40,12 +40,17 @@ wss.on('connection', function(ws) {
     console.log('deleting ' + ws.id);
     delete connections[ws.id];
 
-    for (var id in connections) {
-      connections[id].send(JSON.stringify({
-        type: 'closed',
-        id: ws.id,
-        clients: Object.keys(connections).length
-      }));
-    }
+    sendToConnections({
+      type: 'closed',
+      id: ws.id,
+      clients: Object.keys(connections).length
+    });
   });
 });
+
+var sendToConnections = function(obj) {
+  msg = JSON.stringify(obj);
+  for (var id in connections) {
+    connections[id].send(msg);
+  }
+};
