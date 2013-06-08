@@ -26,34 +26,3 @@ connection.onmessage = function (e) {
     msg[response.type](response);
   }
 };
-
-// Message functions
-
-msg.connection = function(data) {
-  if (data.id > connection.id) {
-    msg.log('client ' + data.id + ' has joined');
-  }
-
-  var client = $('<li class="client"></li>'),
-      ul = $('#connected-clients');
-
-  if (data.id === connection.id) {
-    client.addClass('you');
-  }
-  client.attr('data-id', data.id).html('<span class="client-id">' + data.id + '</span>').appendTo(ul);
-
-  $('#client-count').html(data.clients);
-};
-
-msg.connected = function(data) {
-  connection.id = data.id;
-  msg.log('you are connected as client ' + data.id);
-};
-
-msg.closed = function(data) {
-  msg.log('client ' + data.id + ' has left the session');
-
-  var client = $('.client[data-id=' + data.id + ']').remove();
-
-  $('#client-count').html(data.clients);
-};
