@@ -22,11 +22,13 @@ wss.on('connection', function(ws) {
     }
   });
 
+  // Connected event
   ws.send(JSON.stringify({
     type: 'connected',
     id: ws.id
   }));
 
+  // Connection events
   for (var id in connections) {
 
     // Notify all clients of new connection
@@ -46,6 +48,7 @@ wss.on('connection', function(ws) {
     }
   }
 
+  // Closed event
   ws.on('close', function() {
     console.log('deleting ' + ws.id);
     delete connections[ws.id];
