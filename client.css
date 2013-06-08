@@ -2,6 +2,14 @@
   height: 150px;
   overflow: auto;
 }
+.event-msg {
+  padding: 5px 0 10px;
+  margin: 5px 0;
+  border-bottom: dashed 1px #aaa;
+}
+.welcome-msg {
+  font-weight: bold;
+}
 .client {
   background: #ccc;
   border: solid 1px #aaa;

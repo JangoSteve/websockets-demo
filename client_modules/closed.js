@@ -1,5 +1,5 @@
 msg.closed = function(data) {
-  msg.log('client ' + data.id + ' has left the session');
+  msg.log('Client ' + data.id + ' has left the session.');
 
   var client = $('.client[data-id=' + data.id + ']').remove();
 

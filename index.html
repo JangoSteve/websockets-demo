@@ -20,8 +20,15 @@
     </ul>
 
     <section class="top-bar-section">
+      <ul class="left">
+        <li class="divider"></li>
+        <li class="name"><a><span id="client-count">0</span> clients connected</a></li>
+        <li class="divider hide-for-small"></li>
+      </ul>
       <ul class="right">
-        <li class="name"><a><span id="client-count">0</span> clients</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Documentation &amp; Homepage</a></li>
+        <li><a href="#">Github</a></li>
       </ul>
     </section>
   </nav>
@@ -32,6 +39,11 @@
 
   <div class="panel">
     <div id="event-console">
+      <div class="event-msg welcome-msg">
+        Welcome to the Websockets demo.
+        This is your event console.
+        Check out the <a href="#">README</a> for more info.
+      </div>
     </div>
   </div>
 
@@ -39,6 +51,10 @@
   </ul>
 
   <script src="./vendor/jquery.min.js"></script>
+  <script src="./vendor/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
   <script src="./client.js"></script>
   <script src="./client_modules/connection.js"></script>
   <script src="./client_modules/connected.js"></script>

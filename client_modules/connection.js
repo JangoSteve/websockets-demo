@@ -1,6 +1,6 @@
 msg.connection = function(data) {
   if (data.id > connection.id) {
-    msg.log('client ' + data.id + ' has joined');
+    msg.log('Client ' + data.id + ' has joined.');
   }
 
   var client = $('<li class="client"></li>'),
