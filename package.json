@@ -10,5 +10,6 @@
     "start": "node server"
   },
   "dependencies": {
+    "ws": ""
   }
 }
