@@ -18,13 +18,13 @@ connection.onmessage = function (e) {
   console.log('Server: ' + e.data);
   switch (response.type) {
     case 'connection':
-      count = response.clients;
+      updateCount(response.clients);
       break;
     case 'connected':
-      connection.id = response.id
+      connection.id = response.id;
       break;
     case 'closed':
-      count = response.clients;
+      updateCount(response.clients);
       break;
     default:
       console.log('unknown type: ' + response.type);
@@ -32,6 +32,11 @@ connection.onmessage = function (e) {
   if (typeof(msg[response.type]) === 'function') {
     msg[response.type](response);
   }
+};
+
+var updateCount = function(newCount) {
+  count = newCount;
+  $('#client-count').html(count);
 };
 
 // Message functions
