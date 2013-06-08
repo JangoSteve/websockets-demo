@@ -1,5 +1,6 @@
 var connection = new WebSocket('ws://localhost:8080'),
-    count;
+    count,
+    msg = {};
 
 // When the connection is open, send some data to the server
 connection.onopen = function () {
@@ -25,4 +26,13 @@ connection.onmessage = function (e) {
     default:
       console.log('unknown type: ' + response.type);
   }
+  if (typeof(msg[response.type]) === 'function') {
+    msg[response.type](response);
+  }
+};
+
+// Message functions
+
+msg.connected = function(data) {
+  console.log('connected!');
 };
