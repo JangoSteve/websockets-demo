@@ -1,3 +1,6 @@
+.top-bar {
+  margin-bottom: 0;
+}
 #event-console {
   height: 150px;
   overflow: auto;

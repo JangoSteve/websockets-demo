@@ -7,6 +7,8 @@ msg.click = function(data) {
 $(document).delegate('.client[data-id]', 'click', function (e) {
   var target = $(this).data('id'),
       message = JSON.stringify({type: 'click', target: target});
-  connection.send(message);
-  msg.log('Click sent to client ' + target + '.');
+  if (target !== connection.id) {
+    connection.send(message);
+    msg.log('Click sent to client ' + target + '.');
+  }
 });
