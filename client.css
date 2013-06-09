@@ -10,6 +10,8 @@
 .welcome-msg {
   font-weight: bold;
 }
+#connected-clients {
+}
 .client {
   background: #ccc;
   border: solid 1px #aaa;
@@ -17,6 +19,11 @@
 .client.you {
   background: #9d9;
   border-color: #7b7;
+}
+.client.highlight {
+  -webkit-box-shadow: rgb(238, 255, 68) 3px 3px 15px;
+  -moz-box-shadow: rgb(238, 255, 68) 3px 3px 15px;
+  box-shadow: rgb(238, 255, 68) 3px 3px 15px;
 }
 .client-id {
   display: block;
