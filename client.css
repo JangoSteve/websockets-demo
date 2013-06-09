@@ -16,8 +16,9 @@
 #connected-clients {
 }
 .client {
-  background: #ccc;
-  border: solid 1px #aaa;
+  background: #ddd;
+  border: solid 1px #c3c3c3;
+  cursor: pointer;
 }
 .client.you {
   background: #9d9;
@@ -27,6 +28,7 @@
   -webkit-box-shadow: rgb(238, 255, 68) 3px 3px 15px;
   -moz-box-shadow: rgb(238, 255, 68) 3px 3px 15px;
   box-shadow: rgb(238, 255, 68) 3px 3px 15px;
+  cursor: default;
 }
 .client-id {
   display: block;
