@@ -50,3 +50,11 @@ $(document).delegate('.client[data-id]', 'click', function(e) {
     $this.toggleClass('highlight');
   }
 });
+
+$(document).keyup(function(e) {
+  if (e.keyCode == 27 && follow) { // esc
+    msg.log("Follow mode disabled.");
+    follow = !follow;
+    $('.client[data-id="' + connection.id + '"]').toggleClass('highlight');
+  }
+});
