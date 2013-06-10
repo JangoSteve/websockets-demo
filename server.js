@@ -1,7 +1,9 @@
 var WebSocketServer = require('ws').Server,
-    wss = new WebSocketServer({port: 8080}),
+    wss = new WebSocketServer({port: 8081}),
     i = 0,
-    connections = {};
+    connections = {},
+    connect = require('connect'),
+    clientServer = connect.createServer(connect.static(__dirname)).listen(8080);
 
 wss.on('connection', function(ws) {
   i++;

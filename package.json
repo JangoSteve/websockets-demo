@@ -14,6 +14,7 @@
     "start": "node server"
   },
   "dependencies": {
-    "ws": ""
+    "ws": "",
+    "connect": ""
   }
 }

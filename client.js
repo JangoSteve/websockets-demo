@@ -1,4 +1,5 @@
-var connection = new WebSocket('ws://localhost:8080'),
+var hostname = document.location.hostname,
+    connection = new WebSocket('ws://' + hostname + ':8081'),
     count,
     msg = {
       console: $('#event-console'),
