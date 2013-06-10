@@ -73,6 +73,12 @@ open index.html
 open index.html
 ```
 
+Optionally, you may also open the client page over the
+network, e.g. locally or over wifi, if you have the server
+running. Visit http://localhost:8080, or look
+up your local network address (e.g. 192.168.1.1) using `ifconfig`
+and visit your address on port 8080. 
+
 ## Client Modules
 
 The idea of the app is that everyone who opens the page will be
