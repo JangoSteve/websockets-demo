@@ -26,7 +26,7 @@ connection.onerror = function (error) {
 // Log messages from the server
 connection.onmessage = function (e) {
   var response = JSON.parse(e.data);
-  console.log('Server: ' + e.data);
+  //console.log('Server: ' + e.data);
   if (typeof(msg[response.type]) === 'function') {
     msg[response.type](response);
   }
