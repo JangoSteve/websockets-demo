@@ -1,6 +1,6 @@
-# Websockets Demo
+# WebSockets Demo
 
-This is a demo app to accompany the [Websockets and Methods for
+This is a demo app to accompany the [WebSockets and Methods for
 Real-Time Data
 Streaming](http://www.meetup.com/SEM-JS/events/115354852/) talk at the SE Michigan JavaScript users
 group.
@@ -15,13 +15,13 @@ after all, but it could have easily been writtin in Ruby, Python, or
 some other language and the lessons would remain the same.
 
 The client is a single HTML webpage, which can be opened directly in
-the browser. The page uses the HTML5 websocket spec to connect and
+the browser. The page uses the HTML5 WebSocket spec to connect and
 stream data to and from the server in real-time.
 
 ## Requirements
 
 This app is intended for demonstration purposes, and thus the front-end
-uses no 3rd-party websockets library, such as Socket.IO; it's just
+uses no 3rd-party WebSockets library, such as Socket.IO; it's just
 plain, good old fashioned JavaScript. As a result, this should not be
 considered cross-browser compatible. It's been built and tested using
 Chrome on Mac OSX.
@@ -59,7 +59,7 @@ browser too, who knows)):
 open index.html
 ```
 
-To see the websockets in action, try opening the client page a bunch of
+To see the WebSockets in action, try opening the client page a bunch of
 times in different tabs:
 
 ```
@@ -82,8 +82,8 @@ and visit your address on port 8080.
 ## Client Modules
 
 The idea of the app is that everyone who opens the page will be
-connected to the same websocket server. The websocket server simply
-provides the plumbing, via websockets, to enable clients to pass and
+connected to the same WebSocket server. The WebSocket server simply
+provides the plumbing, via WebSockets, to enable clients to pass and
 receive messages to and from every other connected client.
 
 A message is an arbitrary JSON representation of some data. The only
@@ -100,7 +100,7 @@ There are three client modules included by default in this app that are
 required for the app to function:
 
 * connected.js - receives the connected event when the client connects
-  to the websocket server.
+  to the WebSocket server.
 * connection.js - receives an event that is sent by the server each
   time another client connects.
 * closed.js - sends an event to the server when a client disconnects,
