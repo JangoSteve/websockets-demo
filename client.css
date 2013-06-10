@@ -1,8 +1,11 @@
 .top-bar {
   margin-bottom: 0;
 }
+.panel {
+  margin-bottom: 0;
+}
 #event-console {
-  height: 150px;
+  height: 200px;
   overflow: auto;
 }
 .event-msg {
