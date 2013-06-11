@@ -22,6 +22,9 @@ var setClient = function(id) {
   allClients[id] = $client;
 
   $client.css({position: 'absolute'});
+  if ($client.data('id') === connection.id) {
+    $client.css({'z-index': 1000});
+  }
 };
 
 msg.follow = function(data) {
