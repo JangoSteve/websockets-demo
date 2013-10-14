@@ -1,4 +1,4 @@
-msg.install("connection.js", "#");
+msg.install("connection.js", "https://github.com/JangoSteve/websockets-demo/blob/master/client_modules/connection.js");
 
 msg.connection = function(data) {
   if (data.id > connection.id) {

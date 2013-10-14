@@ -1,4 +1,4 @@
-msg.install("click.js", "#");
+msg.install("click.js", "https://github.com/JangoSteve/websockets-demo/blob/master/client_modules/click.js");
 
 msg.click = function(data) {
   msg.log('Click received from client ' + data.sender + '.');

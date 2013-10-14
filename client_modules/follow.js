@@ -1,4 +1,4 @@
-msg.install("follow.js", "#");
+msg.install("follow.js", "https://github.com/JangoSteve/websockets-demo/blob/master/client_modules/follow.js");
 
 var allClients = {},
     $container = $('#connected-clients'),
