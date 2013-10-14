@@ -63,13 +63,19 @@ wss.on('connection', function(ws) {
   });
 });
 
+console.log('NODE_ENV: ' + process.env.NODE_ENV);
+
 var sendToConnections = function(obj) {
   var msg = JSON.stringify(obj);
   if (obj.target) {
-    console.log('sending from ' + obj.sender + ' to ' + obj.target + ': ' + msg);
+    if (process.env.NODE_ENV !== "production") {
+      console.log('sending from ' + obj.sender + ' to ' + obj.target + ': ' + msg);
+    }
     connections[obj.target].send(msg);
   } else {
-    console.log('sending from ' + obj.sender + ' to everyone: ' + msg);
+    if (process.env.NODE_ENV !== "production") {
+      console.log('sending from ' + obj.sender + ' to everyone: ' + msg);
+    }
     for (var id in connections) {
       connections[id].send(msg);
     }
